@@ -1,0 +1,799 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/6/2026 10:56:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-A95Q7PS"
+  DTS:CreatorName="DESKTOP-A95Q7PS\annia"
+  DTS:DTSID="{B0E844C9-DB63-4382-BA59-ADFC69C71A64}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1058"
+  DTS:ObjectName="ETL_FactSubscriptions"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{DEEA5A53-AAB4-4BBE-961F-6ED0543A77E6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fact_Subscriptions"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AB214851-08FF-478A-BAE2-1757D3E10D1F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fact_Subscriptions"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CableTVDW_FactSubscriptions"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactSubscriptions]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Connections[OleDbConnection]"
+                  connectionManagerID="{0C97548E-E4EA-4B9C-BA90-73AFCA0DD797}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].Columns[SubscriptionID]"
+                      cachedDataType="i4"
+                      cachedName="SubscriptionID"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[SubscriptionID]"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[SubscriptionID]" />
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].Columns[SubscriberID]"
+                      cachedDataType="i4"
+                      cachedName="SubscriberID"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[SubscriberID]"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[SubscriberID]" />
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].Columns[GroupID]"
+                      cachedDataType="i4"
+                      cachedName="GroupID"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[GroupID]"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[GroupID]" />
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].Columns[IsActive]"
+                      cachedDataType="bool"
+                      cachedName="IsActive"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[IsActive]"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[IsActive]" />
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].Columns[StartDateKey]"
+                      cachedDataType="i4"
+                      cachedName="StartDateKey"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[StartDateKey]"
+                      lineageId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Output].Columns[StartDateKey]" />
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].Columns[EndDateKey]"
+                      cachedDataType="i4"
+                      cachedName="EndDateKey"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[EndDateKey]"
+                      lineageId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Output].Columns[EndDateKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[SubscriptionID]"
+                      dataType="i4"
+                      name="SubscriptionID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[SubscriberID]"
+                      dataType="i4"
+                      name="SubscriberID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[GroupID]"
+                      dataType="i4"
+                      name="GroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[StartDateKey]"
+                      dataType="i4"
+                      name="StartDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[EndDateKey]"
+                      dataType="i4"
+                      name="EndDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input].ExternalColumns[IsActive]"
+                      dataType="bool"
+                      name="IsActive" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="CableTV_FactSubscriptions"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    SubscriptionID,
+    SubscriberID,
+    GroupID,
+    StartDate,
+    EndDate,
+    IsActive
+FROM dbo.Subscriptions;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Connections[OleDbConnection]"
+                  connectionManagerID="{F2425C9E-E953-4F58-8D15-0FC800963783}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_OLTP.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[SubscriptionID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[SubscriptionID]"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[SubscriptionID]"
+                      name="SubscriptionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[SubscriberID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[SubscriberID]"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[SubscriberID]"
+                      name="SubscriberID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[GroupID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[GroupID]"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[GroupID]"
+                      name="GroupID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      length="10"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      length="10"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[IsActive]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[IsActive]"
+                      name="IsActive"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[SubscriptionID]"
+                      dataType="i4"
+                      name="SubscriptionID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[SubscriberID]"
+                      dataType="i4"
+                      name="SubscriberID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[GroupID]"
+                      dataType="i4"
+                      name="GroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                      dataType="bool"
+                      name="IsActive" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[SubscriptionID]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[SubscriptionID]"
+                      name="SubscriptionID" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[SubscriberID]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[SubscriberID]"
+                      name="SubscriberID" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[GroupID]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[GroupID]"
+                      name="GroupID" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      name="EndDate" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                      dataType="bool"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                      name="IsActive" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Subscriptions\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Subscriptions\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\Conditional Split.Inputs[Conditional Split Input].Columns[IsActive]"
+                      cachedDataType="bool"
+                      cachedName="IsActive"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[IsActive]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Subscriptions\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\Fact_Subscriptions\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[IsActive]} ==  TRUE </property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">IsActive ==  TRUE </property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Subscriptions\Conditional Split.Outputs[Case 2]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 2"
+                  synchronousInputId="Package\Fact_Subscriptions\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[IsActive]} ==  FALSE </property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">IsActive ==  FALSE </property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Subscriptions\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Fact_Subscriptions\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Subscriptions\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Fact_Subscriptions\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Subscriptions\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Subscriptions\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\Derived Column.Inputs[Derived Column Input].Columns[StartDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="StartDate"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\Fact_Subscriptions\Derived Column.Inputs[Derived Column Input].Columns[EndDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="EndDate"
+                      lineageId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[EndDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Fact_Subscriptions\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Output].Columns[StartDateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Output].Columns[StartDateKey]"
+                      name="StartDateKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)([REPLACE]((DT_WSTR,10)#{Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[StartDate]},"-",""))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(REPLACE((DT_WSTR,10)StartDate,"-",""))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Output].Columns[EndDateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Output].Columns[EndDateKey]"
+                      name="EndDateKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[EndDate]}) ? NULL(DT_I4) : (DT_I4)([REPLACE]((DT_WSTR,10)#{Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output].Columns[EndDate]},"-",""))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(EndDate) ? NULL(DT_I4) : (DT_I4)(REPLACE((DT_WSTR,10)EndDate,"-",""))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Fact_Subscriptions\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fact_Subscriptions.Paths[Case 1]"
+              endId="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\Fact_Subscriptions\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\Fact_Subscriptions.Paths[Derived Column Output]"
+              endId="Package\Fact_Subscriptions\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\Fact_Subscriptions\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Fact_Subscriptions.Paths[OLE DB Source Output]"
+              endId="Package\Fact_Subscriptions\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fact_Subscriptions\CableTV_FactSubscriptions.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Fact_Subscriptions"
+          TopLeft="51.2499977089465,20.1499990391732" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fact_Subscriptions">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\Fact_Subscriptions\CableTV_FactSubscriptions"
+          TopLeft="21.8749990221113,30.5499985432625" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Fact_Subscriptions\Derived Column"
+          TopLeft="39.2499984912574,114.699994792938" />
+        <EdgeLayout
+          Id="Package\Fact_Subscriptions.Paths[OLE DB Source Output]"
+          TopLeft="120.562498756684,73.2166652099292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.4833295830093"
+              Start="0,0"
+              End="0,33.9833295830093">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9833295830093" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\Fact_Subscriptions\Conditional Split"
+          TopLeft="255.624988572672,121.316661676566" />
+        <EdgeLayout
+          Id="Package\Fact_Subscriptions.Paths[Derived Column Output]"
+          TopLeft="193.916665157924,139.341661568086">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.7083234147483,0"
+              Start="0,0"
+              End="54.2083234147483,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54.2083234147483,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions"
+          TopLeft="283.749987315387,36.333332713445" />
+        <EdgeLayout
+          Id="Package\Fact_Subscriptions.Paths[Case 1]"
+          TopLeft="333.624988572672,121.316661676566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.4583320760479,-42.3166622964543"
+              Start="0,0"
+              End="61.4583320760479,-34.8166622964543">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.1583311482272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-17.1583311482272"
+                    Point2="0,-21.1583311482272"
+                    Point3="4,-21.1583311482272" />
+                  <mssgle:LineSegment
+                    End="57.4583320760479,-21.1583311482272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.4583320760479,-21.1583311482272"
+                    Point2="61.4583320760479,-21.1583311482272"
+                    Point3="61.4583320760479,-25.1583311482272" />
+                  <mssgle:LineSegment
+                    End="61.4583320760479,-34.8166622964543" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="15.5110801005239,-16.1583311482272,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact_Subscriptions\CableTV_FactSubscriptions">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact_Subscriptions\CableTVDW_FactSubscriptions">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

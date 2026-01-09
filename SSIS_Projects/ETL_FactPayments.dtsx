@@ -1,0 +1,935 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/6/2026 8:43:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-A95Q7PS"
+  DTS:CreatorName="DESKTOP-A95Q7PS\annia"
+  DTS:DTSID="{0B7763B5-28B7-4888-A4C8-6039FCD64FC5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1058"
+  DTS:ObjectName="ETL_FactPayments"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{CC30A571-8773-4F12-B908-5B2A4BDF005A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fact_Payments"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F7A6C85F-76DE-4F86-BCEC-2D870BFEBFB8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fact_Payments"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fact_Payments\CableTVDW_FactPayments"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CableTVDW_FactPayments"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactPayments]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Payments\CableTVDW_FactPayments.Connections[OleDbConnection]"
+                  connectionManagerID="{0C97548E-E4EA-4B9C-BA90-73AFCA0DD797}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].Columns[PaymentID]"
+                      cachedDataType="i4"
+                      cachedName="PaymentID"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[PaymentID]"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentID]" />
+                    <inputColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].Columns[InvoiceID]"
+                      cachedDataType="i4"
+                      cachedName="InvoiceID"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
+                    <inputColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].Columns[SubscriberID]"
+                      cachedDataType="i4"
+                      cachedName="SubscriberID"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[SubscriberID]"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[SubscriberID]" />
+                    <inputColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].Columns[AmountPaid]"
+                      cachedDataType="numeric"
+                      cachedName="AmountPaid"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[AmountPaid]"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[AmountPaid]" />
+                    <inputColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].Columns[PaymentMethodKey]"
+                      cachedDataType="i4"
+                      cachedName="PaymentMethodKey"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[PaymentMethodKey]"
+                      lineageId="Package\Fact_Payments\Lookup.Outputs[Lookup Match Output].Columns[PaymentMethodKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[PaymentID]"
+                      dataType="i4"
+                      name="PaymentID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[SubscriberID]"
+                      dataType="i4"
+                      name="SubscriberID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                      dataType="i4"
+                      name="InvoiceID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[PaymentMethodKey]"
+                      dataType="i4"
+                      name="PaymentMethodKey" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input].ExternalColumns[AmountPaid]"
+                      dataType="numeric"
+                      name="AmountPaid"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Payments\CableTVDW_FactPayments.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\CableTVDW_FactPayments.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTVDW_FactPayments.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\CableTVDW_FactPayments.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Payments\CableTV_FactPayments"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="CableTV_FactPayments"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    p.PaymentID,
+    p.InvoiceID,
+    i.SubscriberID,
+    CAST(p.PaymentDate AS date) AS PaymentDateOnly,
+    p.PaymentMethod,
+    p.AmountPaid
+FROM dbo.Payments p
+JOIN dbo.Invoices i
+    ON i.InvoiceID = p.InvoiceID;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Payments\CableTV_FactPayments.Connections[OleDbConnection]"
+                  connectionManagerID="{F2425C9E-E953-4F58-8D15-0FC800963783}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_OLTP.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[PaymentID]"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentID]"
+                      name="PaymentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[InvoiceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[InvoiceID]"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[InvoiceID]"
+                      name="InvoiceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[SubscriberID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[SubscriberID]"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[SubscriberID]"
+                      name="SubscriberID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentDateOnly]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[PaymentDateOnly]"
+                      length="10"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentDateOnly]"
+                      name="PaymentDateOnly"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentMethod]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[PaymentMethod]"
+                      length="50"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentMethod]"
+                      name="PaymentMethod"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[AmountPaid]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[AmountPaid]"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[AmountPaid]"
+                      name="AmountPaid"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[PaymentID]"
+                      dataType="i4"
+                      name="PaymentID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[InvoiceID]"
+                      dataType="i4"
+                      name="InvoiceID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[SubscriberID]"
+                      dataType="i4"
+                      name="SubscriberID" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[PaymentDateOnly]"
+                      dataType="wstr"
+                      length="10"
+                      name="PaymentDateOnly" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[PaymentMethod]"
+                      dataType="wstr"
+                      length="50"
+                      name="PaymentMethod" />
+                    <externalMetadataColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].ExternalColumns[AmountPaid]"
+                      dataType="numeric"
+                      name="AmountPaid"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[PaymentID]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[PaymentID]"
+                      name="PaymentID" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[InvoiceID]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[InvoiceID]"
+                      name="InvoiceID" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[SubscriberID]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[SubscriberID]"
+                      name="SubscriberID" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[PaymentDateOnly]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[PaymentDateOnly]"
+                      name="PaymentDateOnly" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[PaymentMethod]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[PaymentMethod]"
+                      name="PaymentMethod" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[AmountPaid]"
+                      dataType="numeric"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[AmountPaid]"
+                      name="AmountPaid"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Payments\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fact_Payments\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Payments\Derived Column.Inputs[Derived Column Input].Columns[PaymentDateOnly]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="PaymentDateOnly"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentDateOnly]" />
+                    <inputColumn
+                      refId="Package\Fact_Payments\Derived Column.Inputs[Derived Column Input].Columns[PaymentMethod]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PaymentMethod"
+                      lineageId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentMethod]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Fact_Payments\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)([REPLACE]((DT_WSTR,10)#{Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentDateOnly]},"-",""))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(REPLACE((DT_WSTR,10)PaymentDateOnly,"-",""))</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Output].Columns[PaymentMethod_UP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Output].Columns[PaymentMethod_UP]"
+                      name="PaymentMethod_UP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[UPPER](#{Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output].Columns[PaymentMethod]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">UPPER(PaymentMethod)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Fact_Payments\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fact_Payments\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    PaymentMethodKey,
+    UPPER(MethodName) AS MethodName
+FROM dbo.DimPaymentMethod;</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT
+    PaymentMethodKey,
+    UPPER(MethodName) AS MethodName
+FROM dbo.DimPaymentMethod;) [refTable]
+where [refTable].[MethodName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PaymentMethodKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MethodName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fact_Payments\Derived Column.Outputs[Derived Column Output].Columns[PaymentMethod_UP]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fact_Payments\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{0C97548E-E4EA-4B9C-BA90-73AFCA0DD797}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_DW.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fact_Payments\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fact_Payments\Lookup.Inputs[Lookup Input].Columns[PaymentMethod_UP]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PaymentMethod_UP"
+                      lineageId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Output].Columns[PaymentMethod_UP]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">MethodName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fact_Payments\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fact_Payments\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Payments\Lookup.Outputs[Lookup Match Output].Columns[PaymentMethodKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Fact_Payments\Lookup.Outputs[Lookup Match Output].Columns[PaymentMethodKey]"
+                      name="PaymentMethodKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">PaymentMethodKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Payments\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fact_Payments\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fact_Payments\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fact_Payments\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fact_Payments\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fact_Payments\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fact_Payments\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fact_Payments.Paths[Derived Column Output]"
+              endId="Package\Fact_Payments\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Fact_Payments\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Fact_Payments.Paths[Lookup Match Output]"
+              endId="Package\Fact_Payments\CableTVDW_FactPayments.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Fact_Payments\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Fact_Payments.Paths[OLE DB Source Output]"
+              endId="Package\Fact_Payments\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fact_Payments\CableTV_FactPayments.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate FactPayments"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F71D32FC-A6D1-4050-8D93-42DB3A912603}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate FactPayments"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0C97548E-E4EA-4B9C-BA90-73AFCA0DD797}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.FactPayments;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CB8C5641-AA83-40AF-A2EC-2309EEEBD31A}"
+      DTS:From="Package\Truncate FactPayments"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fact_Payments" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\Truncate FactPayments"
+          TopLeft="99.9999955296518,38.9999981403352" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Fact_Payments"
+          TopLeft="114.9999948591,124.799994049072" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="192.499995194376,81.6666648070018">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.1333292420707"
+              Start="0,0"
+              End="0,35.6333292420707">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.6333292420707" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fact_Payments">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\Fact_Payments\CableTV_FactPayments"
+          TopLeft="97.4999956414105,33.1499984192849" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Fact_Payments\Derived Column"
+          TopLeft="119.374994663522,113.099994606972" />
+        <EdgeLayout
+          Id="Package\Fact_Payments.Paths[OLE DB Source Output]"
+          TopLeft="194.437495152466,75.8166650859515">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.2833295210204"
+              Start="0,0"
+              End="0,29.7833295210204">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.7833295210204" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Fact_Payments\Lookup"
+          TopLeft="326.249985415489,115.899994854927" />
+        <EdgeLayout
+          Id="Package\Fact_Payments.Paths[Derived Column Output]"
+          TopLeft="274.041661330189,135.833328064283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.2083240853005,0"
+              Start="0,0"
+              End="44.7083240853005,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44.7083240853005,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206.666666666667,42.6666666666667"
+          Id="Package\Fact_Payments\CableTVDW_FactPayments"
+          TopLeft="309.37498616986,212.549989864827" />
+        <EdgeLayout
+          Id="Package\Fact_Payments.Paths[Lookup Match Output]"
+          TopLeft="382.916652082156,158.566661521594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.7916674210377,53.9833283432326"
+              Start="0,0"
+              End="29.7916674210377,46.4833283432326">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9916641716163" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.9916641716163"
+                    Point2="0,26.9916641716163"
+                    Point3="4,26.9916641716163" />
+                  <mssgle:LineSegment
+                    End="25.7916674210377,26.9916641716163" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.7916674210377,26.9916641716163"
+                    Point2="29.7916674210377,26.9916641716163"
+                    Point3="29.7916674210377,30.9916641716163" />
+                  <mssgle:LineSegment
+                    End="29.7916674210377,46.4833283432326" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-33.2955530082311,31.9916641716163,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact_Payments\CableTV_FactPayments">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact_Payments\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact_Payments\CableTVDW_FactPayments">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

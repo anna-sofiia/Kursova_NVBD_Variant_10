@@ -1,0 +1,910 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/4/2026 11:58:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-A95Q7PS"
+  DTS:CreatorName="DESKTOP-A95Q7PS\annia"
+  DTS:DTSID="{CB7ED3A0-7EA3-45B9-861A-7C417CE7B6C2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1058"
+  DTS:ObjectName="ETL_DimChannelGroup"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{095445DF-0B3F-4248-929D-7CA2797DE1D1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dim_ChannelGroup"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DB8355E3-CF91-4E76-95DB-415D6B8E6833}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_ChannelGroup"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CableTVDW_ChannelGroup"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimChannelGroup]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Connections[OleDbConnection]"
+                  connectionManagerID="{0C97548E-E4EA-4B9C-BA90-73AFCA0DD797}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].Columns[GroupID]"
+                      cachedDataType="i4"
+                      cachedName="GroupID"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[GroupID]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupID]" />
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].Columns[GroupName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="GroupName"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[GroupName]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupName]" />
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].Columns[MonthlyPrice]"
+                      cachedDataType="numeric"
+                      cachedName="MonthlyPrice"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[MonthlyPrice]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[MonthlyPrice]" />
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].Columns[ParentGroupID]"
+                      cachedDataType="i4"
+                      cachedName="ParentGroupID"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[ParentGroupID]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[ParentGroupID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[GroupKey]"
+                      dataType="i4"
+                      name="GroupKey" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[GroupID]"
+                      dataType="i4"
+                      name="GroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[GroupName]"
+                      dataType="wstr"
+                      length="50"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[MonthlyPrice]"
+                      dataType="numeric"
+                      name="MonthlyPrice"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input].ExternalColumns[ParentGroupID]"
+                      dataType="i4"
+                      name="ParentGroupID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="CableTV_ChannelGroup"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ChannelGroups]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Connections[OleDbConnection]"
+                  connectionManagerID="{F2425C9E-E953-4F58-8D15-0FC800963783}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_OLTP.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].ExternalColumns[GroupID]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupID]"
+                      name="GroupID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].ExternalColumns[GroupName]"
+                      length="50"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupName]"
+                      name="GroupName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[MonthlyPrice]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].ExternalColumns[MonthlyPrice]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[MonthlyPrice]"
+                      name="MonthlyPrice"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[ParentGroupID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].ExternalColumns[ParentGroupID]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[ParentGroupID]"
+                      name="ParentGroupID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].ExternalColumns[GroupID]"
+                      dataType="i4"
+                      name="GroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].ExternalColumns[GroupName]"
+                      dataType="wstr"
+                      length="50"
+                      name="GroupName" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].ExternalColumns[MonthlyPrice]"
+                      dataType="numeric"
+                      name="MonthlyPrice"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].ExternalColumns[ParentGroupID]"
+                      dataType="i4"
+                      name="ParentGroupID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[GroupID]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[GroupID]"
+                      name="GroupID" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[GroupName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[GroupName]"
+                      name="GroupName" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[MonthlyPrice]"
+                      dataType="numeric"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[MonthlyPrice]"
+                      name="MonthlyPrice"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[ParentGroupID]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[ParentGroupID]"
+                      name="ParentGroupID" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_ChannelGroup\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimChannelGroup]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimChannelGroup]) [refTable]
+where [refTable].[GroupID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="GroupKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GroupID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GroupName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthlyPrice" dataType="DT_NUMERIC" length="0" precision="10" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ParentGroupID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_ChannelGroup\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{0C97548E-E4EA-4B9C-BA90-73AFCA0DD797}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_DW.sa]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_ChannelGroup\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\Lookup.Inputs[Lookup Input].Columns[GroupID]"
+                      cachedDataType="i4"
+                      cachedName="GroupID"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">GroupID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Dim_ChannelGroup\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Match Output].Columns[GroupName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Match Output].Columns[GroupName]"
+                      name="GroupName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">GroupName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Match Output].Columns[MonthlyPrice]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Match Output].Columns[MonthlyPrice]"
+                      name="MonthlyPrice"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">MonthlyPrice</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Match Output].Columns[ParentGroupID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Match Output].Columns[ParentGroupID]"
+                      name="ParentGroupID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ParentGroupID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Dim_ChannelGroup\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Dim_ChannelGroup\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_ChannelGroup\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE DimChannelGroup
+SET
+    GroupName = ?,
+    MonthlyPrice = ?,
+    ParentGroupID = ?
+WHERE GroupID = ?;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1251</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_ChannelGroup\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{0C97548E-E4EA-4B9C-BA90-73AFCA0DD797}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-A95Q7PS.CableTV_DW.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].Columns[GroupName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="GroupName"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupName]" />
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].Columns[MonthlyPrice]"
+                      cachedDataType="numeric"
+                      cachedName="MonthlyPrice"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[MonthlyPrice]" />
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].Columns[ParentGroupID]"
+                      cachedDataType="i4"
+                      cachedName="ParentGroupID"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[ParentGroupID]" />
+                    <inputColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].Columns[GroupID]"
+                      cachedDataType="i4"
+                      cachedName="GroupID"
+                      externalMetadataColumnId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output].Columns[GroupID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="numeric"
+                      name="Param_1"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_ChannelGroup\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_ChannelGroup\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_ChannelGroup\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_ChannelGroup\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim_ChannelGroup.Paths[Lookup Match Output]"
+              endId="Package\Dim_ChannelGroup\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Dim_ChannelGroup.Paths[Lookup No Match Output]"
+              endId="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Dim_ChannelGroup\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Dim_ChannelGroup.Paths[OLE DB Source Output]"
+              endId="Package\Dim_ChannelGroup\Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Dim_ChannelGroup\CableTV_ChannelGroup.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Dim_ChannelGroup"
+          TopLeft="245.624989019707,83.8499960017206" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dim_ChannelGroup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="190.666666666667,42.6666666666667"
+          Id="Package\Dim_ChannelGroup\CableTV_ChannelGroup"
+          TopLeft="172.499992288649,13.6499993491173" />
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Dim_ChannelGroup\Lookup"
+          TopLeft="206.874990751967,87.7499958157541" />
+        <EdgeLayout
+          Id="Package\Dim_ChannelGroup.Paths[OLE DB Source Output]"
+          TopLeft="265.687491520308,56.316666015784">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.4333297999701"
+              Start="0,0"
+              End="0,23.9333297999701">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9333297999701" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208,42.6666666666667"
+          Id="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup"
+          TopLeft="56.2499974854291,182.64999129057" />
+        <EdgeLayout
+          Id="Package\Dim_ChannelGroup.Paths[Lookup No Match Output]"
+          TopLeft="263.541657418634,130.416662482421">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-103.291659933205,52.2333288081489"
+              Start="0,0"
+              End="-103.291659933205,44.7333288081489">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1166644040744" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.1166644040744"
+                    Point2="0,26.1166644040744"
+                    Point3="-4,26.1166644040744" />
+                  <mssgle:LineSegment
+                    End="-99.2916599332047,26.1166644040744" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-99.2916599332047,26.1166644040744"
+                    Point2="-103.291659933205,26.1166644040744"
+                    Point3="-103.291659933205,30.1166644040744" />
+                  <mssgle:LineSegment
+                    End="-103.291659933205,44.7333288081489" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-107.452216685352,31.1166644040744,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Dim_ChannelGroup\OLE DB Command"
+          TopLeft="309.37498616986,188.283326421579" />
+        <EdgeLayout
+          Id="Package\Dim_ChannelGroup.Paths[Lookup Match Output]"
+          TopLeft="281.097212974189,130.416662482421">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.611106529004,57.8666639391583"
+              Start="0,0"
+              End="111.611106529004,50.3666639391583">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.6300066201667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.6300066201667"
+                    Point2="0,23.6300066201667"
+                    Point3="4,23.6300066201667" />
+                  <mssgle:LineSegment
+                    End="107.611106529004,23.6300066201667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.611106529004,23.6300066201667"
+                    Point2="111.611106529004,23.6300066201667"
+                    Point3="111.611106529004,27.6300066201667" />
+                  <mssgle:LineSegment
+                    End="111.611106529004,50.3666639391583" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="7.61416654575221,28.6300066201667,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_ChannelGroup\CableTV_ChannelGroup">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_ChannelGroup\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimChannelGroup]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_ChannelGroup\CableTVDW_ChannelGroup">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
